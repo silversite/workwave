@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit colors="true" bootstrap="vendor/autoload.php">
+    <logging>
+        <log type="coverage-html" target="/tmp/build/coverage"/>
+        <log type="coverage-clover" target="/tmp/build/logs/clover.xml"/>
+        <log type="coverage-crap4j" target="/tmp/build/logs/crap4j.xml"/>
+        <log type="junit" target="/tmp/build/logs/junit.xml" logIncompleteSkipped="true"/>
+    </logging>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src/SilverSite/WorkWave/</directory>
+        </whitelist>
+    </filter>
+
+    <testsuites>
+        <testsuite name="Application Test Suite">
+            <directory>SilverSite/WorkWave/Tests/</directory>
+        </testsuite>
+    </testsuites>
+
+</phpunit>

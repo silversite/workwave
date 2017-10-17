@@ -1,0 +1,40 @@
+services:
+    worwave.authentication.header:
+        class: SilverSite\WorkWave\Service\AuthenticationHeader
+        public: false
+        arguments:
+            - '%workwave_key%'
+
+    worwave.factory.http_client:
+        class: SilverSite\WorkWave\Service\Factory\HttpClient
+        public: false
+        arguments:
+            - '@worwave.authentication.header'
+
+    worwave.client:
+        class: SilverSite\WorkWave\Service\Client
+        public: false
+        arguments:
+            - '@worwave.factory.http_client'
+
+    worwave.order.add_handler:
+        class: SilverSite\WorkWave\CommandHandler\OrderAddHandler
+        public: true
+        arguments:
+            - '@worwave.client'
+            - '@doctrine.orm.entity_manager'
+        tags:
+            - { name: tactician.handler, command: SilverSite\WorkWave\Command\OrderAddCommand }
+
+    worwave.order.delete_handler:
+        class: SilverSite\WorkWave\CommandHandler\OrderDeleteHandler
+        public: true
+        arguments:
+            - '@worwave.client'
+        tags:
+            - { name: tactician.handler, command: SilverSite\WorkWave\Command\OrderDeleteCommand }
+
+    workwave.order.get_order:
+        class: SilverSite\WorkWave\Query\GetOrder
+        arguments:
+            - '@worwave.client'
