@@ -2,7 +2,7 @@
   "name": "silversite/workwave",
   "description": "WorkWave SDK",
   "minimum-stability": "stable",
-  "license": "Apache",
+  "license": "Apache License",
   "authors": [
     {
       "name": "Michał Kalkowski",
