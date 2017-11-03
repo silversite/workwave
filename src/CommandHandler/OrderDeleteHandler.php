@@ -3,12 +3,8 @@ declare(strict_types=1);
 
 namespace SilverSite\WorkWave\CommandHandler;
 
-use Doctrine\ORM\EntityManagerInterface;
-use SilverSite\WorkWave\Collection\OrderIdCollection;
-use SilverSite\WorkWave\Command\OrderAddCommand;
 use SilverSite\WorkWave\Command\OrderDeleteCommand;
-use SilverSite\WorkWave\Service\Client;
-use SilverSite\WorkWave\ValueObject\OrderRequest;
+use SilverSite\WorkWave\Common\CommandHandler\AbstractCommandHandler;
 
 final class OrderDeleteHandler extends AbstractCommandHandler
 {

@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace SilverSite\WorkWave\Query;
+namespace SilverSite\WorkWave\Common\Query;
 
-use SilverSite\WorkWave\Service\Client;
+use SilverSite\WorkWave\Common\Service\Client;
 
 abstract class QueryAbstract
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace SilverSite\WorkWave\Exceptions;
+namespace SilverSite\WorkWave\Common\Exceptions;
 
 class InvalidUUIDException extends \InvalidArgumentException
 {

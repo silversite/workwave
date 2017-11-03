@@ -1,12 +1,13 @@
 <?php
+declare(strict_types=1);
 
-namespace SilverSite\WorkWave\Service;
+namespace SilverSite\WorkWave\Common\Service;
 
 use GuzzleHttp\Client as HttpClient;
-use SilverSite\WorkWave\Service\Factory\HttpClient as HttpClientFactory;
 use Psr\Http\Message\ResponseInterface;
+use SilverSite\WorkWave\Common\Service\Factory\HttpClient as HttpClientFactory;
 
-class Client
+final class Client
 {
     public const REQUEST_METHOD_POST = 'POST';
     public const REQUEST_METHOD_GET = 'GET';

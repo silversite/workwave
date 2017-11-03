@@ -1,9 +1,9 @@
 <?php
 
-namespace SilverSite\WorkWave\Service\Factory;
+namespace SilverSite\WorkWave\Common\Service\Factory;
 
 use GuzzleHttp\Client;
-use SilverSite\WorkWave\Service\AuthenticationHeader;
+use SilverSite\WorkWave\Common\Service\AuthenticationHeader;
 
 final class HttpClient implements HttpClientInterface
 {

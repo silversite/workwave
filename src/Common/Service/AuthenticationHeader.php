@@ -1,6 +1,7 @@
 <?php
+declare(strict_types=1);
 
-namespace SilverSite\WorkWave\Service;
+namespace SilverSite\WorkWave\Common\Service;
 
 use GuzzleHttp\RequestOptions;
 

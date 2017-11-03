@@ -7,6 +7,7 @@ use SilverSite\WorkWave\Collection\CustomFieldsCollection;
 use SilverSite\WorkWave\Collection\ElementExistsException;
 use SilverSite\WorkWave\Collection\OrderIdCollection;
 use SilverSite\WorkWave\Collection\OrderResponseCollection;
+use SilverSite\WorkWave\Common\Query\QueryAbstract;
 use SilverSite\WorkWave\ValueObject\CustomField;
 use SilverSite\WorkWave\ValueObject\Delivery;
 use SilverSite\WorkWave\ValueObject\OrderId;
