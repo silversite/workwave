@@ -1,9 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace SilverSite\WorkWave\ValueObject;
-
-use SilverSite\WorkWave\Exceptions\InvalidUUIDException;
+namespace SilverSite\WorkWave\Common\ValueObject;
 
 abstract class Uuid
 {
