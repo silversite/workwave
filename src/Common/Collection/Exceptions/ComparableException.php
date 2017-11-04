@@ -1,6 +1,6 @@
 <?php
 
-namespace SilverSite\WorkWave\Collection;
+namespace SilverSite\WorkWave\Common\Exceptions\Collection;
 
 
 class ComparableException extends \InvalidArgumentException

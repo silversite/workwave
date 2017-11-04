@@ -3,9 +3,10 @@ declare(strict_types=1);
 
 namespace SilverSite\WorkWave\Collection;
 
+use SilverSite\WorkWave\Common\Collection\AbstractCollection;
 use SilverSite\WorkWave\ValueObject\OrderResponse;
 
-final class OrderResponseCollection extends CollectionAbstract
+final class OrderResponseCollection extends AbstractCollection
 {
 
     /**

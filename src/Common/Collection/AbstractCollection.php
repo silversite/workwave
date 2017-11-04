@@ -1,8 +1,11 @@
 <?php
 
-namespace SilverSite\WorkWave\Collection;
+namespace SilverSite\WorkWave\Common\Collection;
 
-abstract class CollectionAbstract implements \Iterator, \Countable
+use SilverSite\WorkWave\Collection\ElementNotFoundException;
+use SilverSite\WorkWave\Common\ValueObject\ComparableInterface;
+
+abstract class AbstractCollection implements \Iterator, \Countable
 {
 
     /** @var array */
@@ -15,10 +18,6 @@ abstract class CollectionAbstract implements \Iterator, \Countable
      * @return object
      */
     abstract public function current();
-
-    /**
-     * @param object $element
-     */
 
     public function next(): void
     {

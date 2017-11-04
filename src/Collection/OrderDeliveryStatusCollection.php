@@ -3,10 +3,11 @@ declare(strict_types=1);
 
 namespace SilverSite\WorkWave\Collection;
 
+use SilverSite\WorkWave\Common\Collection\AbstractCollection;
 use SilverSite\WorkWave\ValueObject\OrderDeliveryStatus;
 use SilverSite\WorkWave\ValueObject\OrderId;
 
-final class OrderDeliveryStatusCollection extends CollectionAbstract
+final class OrderDeliveryStatusCollection extends AbstractCollection
 {
     /**
      * @throws ElementNotFoundException

@@ -3,9 +3,10 @@ declare(strict_types=1);
 
 namespace SilverSite\WorkWave\Collection;
 
+use SilverSite\WorkWave\Common\Collection\AbstractCollection;
 use SilverSite\WorkWave\ValueObject\TerritoryId as TerritoryIdVo;
 
-final class TerritoryIdCollection extends CollectionAbstract
+final class TerritoryIdCollection extends AbstractCollection
 {
     /**
      * @param TerritoryIdVo $element

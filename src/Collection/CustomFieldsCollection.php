@@ -2,10 +2,11 @@
 
 namespace SilverSite\WorkWave\Collection;
 
+use SilverSite\WorkWave\Common\Collection\AbstractCollection;
 use SilverSite\WorkWave\ValueObject\CustomField;
 use SilverSite\WorkWave\ValueObject\Load;
 
-class CustomFieldsCollection extends CollectionAbstract implements \JsonSerializable
+class CustomFieldsCollection extends AbstractCollection implements \JsonSerializable
 {
     /**
      * @return CustomField

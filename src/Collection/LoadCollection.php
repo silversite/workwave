@@ -2,9 +2,10 @@
 
 namespace SilverSite\WorkWave\Collection;
 
+use SilverSite\WorkWave\Common\Collection\AbstractCollection;
 use SilverSite\WorkWave\ValueObject\Load;
 
-final class LoadCollection extends CollectionAbstract implements \JsonSerializable
+final class LoadCollection extends AbstractCollection implements \JsonSerializable
 {
     /**
      * @return Load

@@ -2,9 +2,10 @@
 
 namespace SilverSite\WorkWave\Collection;
 
+use SilverSite\WorkWave\Common\Collection\AbstractCollection;
 use SilverSite\WorkWave\ValueObject\Date;
 
-final class OnDateCollection extends CollectionAbstract implements \JsonSerializable
+final class OnDateCollection extends AbstractCollection implements \JsonSerializable
 {
 
     /**

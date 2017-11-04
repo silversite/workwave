@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace SilverSite\WorkWave\Collection;
 
+use SilverSite\WorkWave\Common\Collection\AbstractCollection;
 use SilverSite\WorkWave\ValueObject\TimeWindow;
 
-final class TimeWindowCollection extends CollectionAbstract implements \JsonSerializable
+final class TimeWindowCollection extends AbstractCollection implements \JsonSerializable
 {
     private const LIMIT = 4;
 

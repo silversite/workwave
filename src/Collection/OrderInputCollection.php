@@ -2,9 +2,10 @@
 
 namespace SilverSite\WorkWave\Collection;
 
+use SilverSite\WorkWave\Common\Collection\AbstractCollection;
 use SilverSite\WorkWave\ValueObject\OrderInput;
 
-final class OrderInputCollection extends CollectionAbstract implements \JsonSerializable
+final class OrderInputCollection extends AbstractCollection implements \JsonSerializable
 {
 
     /**
