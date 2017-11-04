@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace SilverSite\WorkWave\ValueObject;
 
-use SilverSite\WorkWave\Collection\ComparableException;
-use SilverSite\WorkWave\Collection\ComparableInterface;
 use InvalidArgumentException;
 use JsonSerializable;
+use SilverSite\WorkWave\Collection\ComparableException;
+use SilverSite\WorkWave\Common\ValueObject\ComparableInterface;
 
 final class OrderDeliveryStatus implements JsonSerializable, ComparableInterface
 {

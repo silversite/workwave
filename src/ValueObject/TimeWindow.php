@@ -2,8 +2,8 @@
 
 namespace SilverSite\WorkWave\ValueObject;
 
-use SilverSite\WorkWave\Collection\ComparableException;
-use SilverSite\WorkWave\Collection\ComparableInterface;
+use SilverSite\WorkWave\Common\Exceptions\Collection\ComparableException;
+use SilverSite\WorkWave\Common\ValueObject\ComparableInterface;
 
 final class TimeWindow implements ComparableInterface, \JsonSerializable
 {
@@ -32,7 +32,7 @@ final class TimeWindow implements ComparableInterface, \JsonSerializable
      */
     public function isEqual($element): bool
     {
-        if (!$element instanceof TimeWindow) {
+        if (! $element instanceof TimeWindow) {
             throw ComparableException::create();
         }
 

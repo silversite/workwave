@@ -3,7 +3,7 @@
 namespace SilverSite\WorkWave\ValueObject;
 
 use SilverSite\WorkWave\Collection\ComparableException;
-use SilverSite\WorkWave\Collection\ComparableInterface;
+use SilverSite\WorkWave\Common\ValueObject\ComparableInterface;
 
 final class CustomField implements \JsonSerializable, ComparableInterface
 {

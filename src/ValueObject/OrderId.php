@@ -4,7 +4,8 @@ declare(strict_types=1);
 namespace SilverSite\WorkWave\ValueObject;
 
 use SilverSite\WorkWave\Collection\ComparableException;
-use SilverSite\WorkWave\Collection\ComparableInterface;
+use SilverSite\WorkWave\Common\ValueObject\ComparableInterface;
+use SilverSite\WorkWave\Common\ValueObject\Uuid;
 
 final class OrderId extends Uuid implements ComparableInterface
 {

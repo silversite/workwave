@@ -2,9 +2,9 @@
 
 namespace SilverSite\WorkWave\ValueObject;
 
-use SilverSite\WorkWave\Collection\ComparableException;
-use SilverSite\WorkWave\Collection\ComparableInterface;
 use SilverSite\WorkWave\Collection\LoadCollection;
+use SilverSite\WorkWave\Common\Exceptions\Collection\ComparableException;
+use SilverSite\WorkWave\Common\ValueObject\ComparableInterface;
 
 final class OrderInput implements \JsonSerializable, ComparableInterface
 {
