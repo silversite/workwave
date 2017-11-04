@@ -1,6 +1,6 @@
 <?php
 
-namespace SilverSite\WorkWave\Common\Service\Factory;
+namespace SilverSite\WorkWave\Common\Service;
 
 use GuzzleHttp\Client;
 
@@ -8,7 +8,7 @@ use GuzzleHttp\Client;
  * Interface HttpClientInterface
  * @package SilverSite\WorkWave\Common\Service\Factory
  */
-interface HttpClientInterface
+interface HttpClientFactoryInterface
 {
     /**
      * @return Client

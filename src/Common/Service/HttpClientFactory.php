@@ -1,11 +1,10 @@
 <?php
 
-namespace SilverSite\WorkWave\Common\Service\Factory;
+namespace SilverSite\WorkWave\Common\Service;
 
 use GuzzleHttp\Client;
-use SilverSite\WorkWave\Common\Service\AuthenticationHeader;
 
-final class HttpClient implements HttpClientInterface
+final class HttpClientFactory implements HttpClientFactoryInterface
 {
     private const API_URI = 'https://wwrm.workwave.com';
 
@@ -14,11 +13,18 @@ final class HttpClient implements HttpClientInterface
      */
     private $authHeader;
 
+    /**
+     * HttpClientFactory constructor.
+     * @param \SilverSite\WorkWave\Common\Service\AuthenticationHeader $header
+     */
     public function __construct(AuthenticationHeader $header)
     {
         $this->authHeader = $header;
     }
 
+    /**
+     * @return Client
+     */
     public function create(): Client
     {
         $config = ['base_uri' => self::API_URI] + $this->authHeader->requestHeader();

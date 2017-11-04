@@ -3,26 +3,31 @@ declare(strict_types=1);
 
 namespace SilverSite\WorkWave\Common\Service;
 
-use GuzzleHttp\Client as HttpClient;
 use Psr\Http\Message\ResponseInterface;
-use SilverSite\WorkWave\Common\Service\Factory\HttpClient as HttpClientFactory;
+use SilverSite\WorkWave\Common\Service\HttpClientFactory as HttpClientFactory;
 
-final class Client
+final class Client implements ClientInterface
 {
-    public const REQUEST_METHOD_POST = 'POST';
-    public const REQUEST_METHOD_GET = 'GET';
-    public const REQUEST_METHOD_DELETE = 'DELETE';
-
     /**
-     * @var HttpClient
+     * @var HttpClientFactory
      */
     private $httpClient;
 
-    public function __construct(HttpClientFactory $factory)
+    /**
+     * Client constructor.
+     * @param HttpClientFactoryInterface $factory
+     */
+    public function __construct(HttpClientFactoryInterface $factory)
     {
         $this->httpClient = $factory->create();
     }
 
+    /**
+     * @param string $uri
+     * @param array $parameters
+     * @param string $method
+     * @return array
+     */
     public function requestContent(string $uri, array $parameters = [], $method = self::REQUEST_METHOD_POST): array
     {
         $response = $this->request($uri, $parameters, $method);
@@ -31,6 +36,12 @@ final class Client
         return json_decode($content, true);
     }
 
+    /**
+     * @param string $uri
+     * @param array $parameters
+     * @param string $method
+     * @return ResponseInterface
+     */
     public function request(string $uri, array $parameters = [], $method = self::REQUEST_METHOD_POST): ResponseInterface
     {
         return $this->httpClient->request($method, 'api/v1/' . $uri, ['json' => $parameters]);
