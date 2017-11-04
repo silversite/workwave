@@ -3,18 +3,23 @@ declare(strict_types=1);
 
 namespace SilverSiteTest\WorWave\Common\Query;
 
+use Silversite\WorWave\Common\Query\GetCallbackUrl;
 use SilverSiteTest\WorkWave\TestCase\ApiResponse;
 
 class GetCallbackUrlTest extends ApiResponse
 {
-    private const RESPONSE_FILE = FIXTURES_PATH_RESPONSE . '/Common/GetUrl.json';
+    /**
+     * @var string
+     */
+    protected $responseFile = '/Common/GetUrl.json';
 
     /**
      * @test
      */
-    public function getCurrentCallbackUrl(): void
+    public function it_given_an_current_callback_url(): void
     {
-        $this->requestMock(self::RESPONSE_FILE);
+        $query = new GetCallbackUrl($this->getFakeResponse());
 
+        $this->assertEquals('https://my.server.com/callback', $query->url());
     }
 }
