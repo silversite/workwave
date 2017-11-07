@@ -9,4 +9,4 @@ extensions:
           html: coverage
           xml: coverage
 suites:
-    common: { namespace: SilverSite\WorkWave, psr4_prefix: SilverSite\WorkWave, src_path: src/Common }
+    main: { namespace: SilverSite\WorkWave, psr4_prefix: SilverSite\WorkWave, src_path: src/ }
