@@ -28,7 +28,12 @@ class GetCallbackUrlSpec extends ObjectBehavior
 
     public function it_make_request_and_get_callback_url(): void
     {
-         $this->url()->shouldHaveType(CallbackUrl::class);
-         $this->url()->__toString()->shouldBeEqualTo('https://my.server.com/callback');
+        $this->shouldHaveCallbackUrl();
+    }
+
+    private function shouldHaveCallbackUrl(): void
+    {
+        $this->url()->shouldHaveType(CallbackUrl::class);
+        $this->url()->__toString()->shouldBeEqualTo('https://my.server.com/callback');
     }
 }
