@@ -24,6 +24,11 @@ class AuthenticationHeaderSpec extends ObjectBehavior
 
     public function it_create_header_with_auth_key(): void
     {
+        $this->shouldHaveValidHeader();
+    }
+
+    private function shouldHaveValidHeader(): void
+    {
         $this->authKey()->shouldBeArray();
         $this->authKey()->shouldHaveKey(RequestOptions::HEADERS);
         $this
