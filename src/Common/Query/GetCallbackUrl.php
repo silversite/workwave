@@ -1,22 +1,21 @@
 <?php
 declare(strict_types=1);
 
-namespace Silversite\WorWave\Common\Query;
+namespace SilverSite\WorkWave\Common\Query;
 
-use SilverSite\WorkWave\Common\Query\QueryAbstract;
-use Silversite\WorWave\Common\ValueObject\Url;
+use SilverSite\WorkWave\Common\ValueObject\CallbackUrl;
 
 final class GetCallbackUrl extends QueryAbstract
 {
     protected const URI = 'callback';
 
     /**
-     * @return Url
+     * @return CallbackUrl
      */
-    public function url(): Url
+    public function url(): CallbackUrl
     {
-        $response = $this->request([]);
+        $response = $this->request();
 
-        return new Url($response['url']);
+        return new CallbackUrl($response['url']);
     }
 }

@@ -12,11 +12,18 @@ class AuthenticationHeader
      */
     private $authKey;
 
+    /**
+     * AuthenticationHeader constructor.
+     * @param string $authKey
+     */
     public function __construct(string $authKey)
     {
         $this->authKey = $authKey;
     }
 
+    /**
+     * @return array
+     */
     public function requestHeader(): array
     {
         return [

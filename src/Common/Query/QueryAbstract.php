@@ -17,12 +17,20 @@ abstract class QueryAbstract
      */
     protected $client;
 
+    /**
+     * QueryAbstract constructor.
+     * @param Client $client
+     */
     public function __construct(Client $client)
     {
         $this->client = $client;
     }
 
-    protected function request(array $urlParams): array
+    /**
+     * @param array $urlParams
+     * @return array
+     */
+    protected function request(array $urlParams = []): array
     {
         $uri = $this->replaceParameters($urlParams);
         $response = $this->client->requestContent($uri, [], 'GET');
@@ -30,6 +38,10 @@ abstract class QueryAbstract
         return $response;
     }
 
+    /**
+     * @param array $parameters
+     * @return string
+     */
     protected function replaceParameters(array $parameters): string
     {
         return str_replace(array_keys($parameters), array_values($parameters), static::URI);

@@ -6,7 +6,7 @@ namespace SilverSite\WorkWave\Common\Service;
 use Psr\Http\Message\ResponseInterface;
 use SilverSite\WorkWave\Common\Service\HttpClientFactory as HttpClientFactory;
 
-final class Client implements ClientInterface
+class Client implements ClientInterface
 {
     /**
      * @var HttpClientFactory

@@ -1,11 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Silversite\WorWave\Common\ValueObject;
+namespace SilverSite\WorkWave\Common\ValueObject;
 
-use Silversite\WorWave\Exceptions\ValueEmptyException;
-
-final class Url
+final class CallbackUrl
 {
     /**
      * @var string
@@ -18,9 +16,6 @@ final class Url
      */
     public function __construct(string $url)
     {
-        if (empty($url)) {
-            throw ValueEmptyException::create('$url');
-        }
         $this->url = $url;
     }
 

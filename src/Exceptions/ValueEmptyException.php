@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Silversite\WorWave\Exceptions;
+namespace SilverSite\WorkWave\Exceptions;
 
 class ValueEmptyException extends \InvalidArgumentException
 {

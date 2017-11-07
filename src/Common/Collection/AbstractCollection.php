@@ -5,7 +5,7 @@ namespace SilverSite\WorkWave\Common\Collection;
 use SilverSite\WorkWave\Collection\ElementNotFoundException;
 use SilverSite\WorkWave\Common\ValueObject\ComparableInterface;
 
-abstract class AbstractCollection implements \Iterator, \Countable
+abstract class AbstractCollection implements \Iterator, \Countable, CollectionInterface
 {
 
     /** @var array */
@@ -13,11 +13,6 @@ abstract class AbstractCollection implements \Iterator, \Countable
 
     /** @var int */
     private $key = 0;
-
-    /**
-     * @return object
-     */
-    abstract public function current();
 
     public function next(): void
     {
@@ -29,14 +24,24 @@ abstract class AbstractCollection implements \Iterator, \Countable
         $this->key = 0;
     }
 
+    /**
+     * @return int
+     */
     public function count(): int
     {
         return count($this->elements);
     }
 
+    /**
+     * @return object | null
+     */
     public function first()
     {
-        return reset($this->elements);
+        if ($element = reset($this->elements)) {
+            return $element;
+        }
+
+        return null;
     }
 
     public function last()
