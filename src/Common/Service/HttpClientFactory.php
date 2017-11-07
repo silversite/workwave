@@ -9,15 +9,15 @@ final class HttpClientFactory implements HttpClientFactoryInterface
     private const API_URI = 'https://wwrm.workwave.com';
 
     /**
-     * @var AuthenticationHeader
+     * @var AuthenticationHeaderInterface
      */
     private $authHeader;
 
     /**
      * HttpClientFactory constructor.
-     * @param \SilverSite\WorkWave\Common\Service\AuthenticationHeader $header
+     * @param AuthenticationHeaderInterface $header
      */
-    public function __construct(AuthenticationHeader $header)
+    public function __construct(AuthenticationHeaderInterface $header)
     {
         $this->authHeader = $header;
     }
@@ -27,7 +27,7 @@ final class HttpClientFactory implements HttpClientFactoryInterface
      */
     public function create(): Client
     {
-        $config = ['base_uri' => self::API_URI] + $this->authHeader->requestHeader();
+        $config = ['base_uri' => self::API_URI] + $this->authHeader->authKey();
 
         return new Client($config);
     }

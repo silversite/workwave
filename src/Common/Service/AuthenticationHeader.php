@@ -4,19 +4,22 @@ declare(strict_types=1);
 namespace SilverSite\WorkWave\Common\Service;
 
 use GuzzleHttp\RequestOptions;
+use SilverSite\WorkWave\Common\ValueObject\AuthKey;
 
-class AuthenticationHeader
+final class AuthenticationHeader implements AuthenticationHeaderInterface
 {
+    public const WORK_WAVE_KEY_HEADER = 'X-WorkWave-Key';
+
     /**
-     * @var string
+     * @var AuthKey
      */
     private $authKey;
 
     /**
      * AuthenticationHeader constructor.
-     * @param string $authKey
+     * @param AuthKey $authKey
      */
-    public function __construct(string $authKey)
+    public function __construct(AuthKey $authKey)
     {
         $this->authKey = $authKey;
     }
@@ -24,12 +27,12 @@ class AuthenticationHeader
     /**
      * @return array
      */
-    public function requestHeader(): array
+    public function authKey(): array
     {
         return [
             RequestOptions::HEADERS => [
-                'X-WorkWave-Key' => $this->authKey
-            ]
+                self::WORK_WAVE_KEY_HEADER => (string)$this->authKey,
+            ],
         ];
     }
 }
