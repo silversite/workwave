@@ -19,6 +19,6 @@ final class OrderId extends Uuid implements ComparableInterface
             throw ComparableException::create();
         }
 
-        return $this->id === $element->id;
+        return $this->uuid === $element->uuid;
     }
 }

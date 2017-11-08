@@ -12,24 +12,24 @@ abstract class Uuid
     /**
      * @var string
      */
-    protected $id;
+    protected $uuid;
 
     /**
      * Uuid constructor.
-     * @param string $id
+     * @param string $uuid
      */
-    public function __construct(string $id)
+    public function __construct(string $uuid)
     {
-        $this->validUuid($id);
-        $this->id = $id;
+        $this->validUuid($uuid);
+        $this->uuid = $uuid;
     }
 
     /**
-     * @param string $id
+     * @param string $uuid
      */
-    protected function validUuid(string $id): void
+    protected function validUuid(string $uuid): void
     {
-        if ( !preg_match(self::UUID_REGEX, $id)) {
+        if ( !preg_match(self::UUID_REGEX, $uuid)) {
             throw InvalidUUIDException::create();
         }
     }
@@ -39,6 +39,6 @@ abstract class Uuid
      */
     public function __toString(): string
     {
-        return $this->id;
+        return $this->uuid;
     }
 }

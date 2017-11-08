@@ -28,12 +28,17 @@ class AuthKeySpec extends ObjectBehavior
 
     public function it_throw_an_exception_when_uuid_has_invalid_format(): void
     {
-        $this->shouldThrow(InvalidUUIDException::class);
-        $this->beConstructedWith('invali-uuu-id');
+        $this->uuidHasInvalidFormat();
     }
 
     private function shouldContainsGivenAuthKey(): void
     {
         $this->__toString()->shouldEqual(self::AUTH_UUID);
+    }
+
+    private function uuidHasInvalidFormat(): void
+    {
+        $this->beConstructedWith('invali-uuu-id');
+        $this->shouldThrow(InvalidUUIDException::class)->duringInstantiation();
     }
 }

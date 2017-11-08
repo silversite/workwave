@@ -1,5 +1,6 @@
 # WorkWave
 WorkWave API SDK
+Documentation of the API https://wwrm.workwave.com/api/
 
 # Create client connection
 
