@@ -9,24 +9,31 @@ use SilverSite\WorkWave\Common\ValueObject\AuthKey;
 
 class AuthKeySpec extends ObjectBehavior
 {
+    private const AUTH_UUID = '429defc8-5b05-4c3e-920d-0bb911a61345';
+
     public function it_is_initializable(): void
     {
         $this->shouldHaveType(AuthKey::class);
     }
 
-    public function let()
+    public function let(): void
     {
-        $this->beConstructedWith('429defc8-5b05-4c3e-920d-0bb911a61345');
+        $this->beConstructedWith(self::AUTH_UUID);
     }
 
     public function it_return_auth_key_in_string_format(): void
     {
-        $this->__toString()->shouldEqual('429defc8-5b05-4c3e-920d-0bb911a61345');
+        $this->shouldContainsGivenAuthKey();
     }
 
     public function it_throw_an_exception_when_uuid_has_invalid_format(): void
     {
         $this->shouldThrow(InvalidUUIDException::class);
         $this->beConstructedWith('invali-uuu-id');
+    }
+
+    private function shouldContainsGivenAuthKey(): void
+    {
+        $this->__toString()->shouldEqual(self::AUTH_UUID);
     }
 }

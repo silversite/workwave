@@ -33,26 +33,32 @@ class ClientSpec extends ObjectBehavior
 
     public function it_request_to_url_then_return_response_body_and_content(): void
     {
-        $this
-            ->request('test', ['test' => 'test'], ClientInterface::REQUEST_METHOD_GET)
-            ->shouldBeAnInstanceOf(ResponseInterface::class)
-        ;
-        $this
-            ->request('test', ['test' => 'test'], ClientInterface::REQUEST_METHOD_GET)
-            ->getBody()->shouldBeAnInstanceOf(StreamInterface::class)
-        ;
-        $this
-            ->request('test', ['test' => 'test'], ClientInterface::REQUEST_METHOD_GET)
-            ->getBody()
-            ->getContents()->shouldEqual(json_encode(['test' => 'test']));
-        ;
+        $this->shouldBeContentWithResponseInJsonFormat();
     }
 
     public function it_request_to_url_then_response_with_content(): void
     {
+        $this->shouldBeResponsContentWithArrayFormat();
+    }
+
+    private function shouldBeContentWithResponseInJsonFormat(): void
+    {
+        $this
+            ->request('test', ['test' => 'test'], ClientInterface::REQUEST_METHOD_GET)
+            ->shouldBeAnInstanceOf(ResponseInterface::class);
+        $this
+            ->request('test', ['test' => 'test'], ClientInterface::REQUEST_METHOD_GET)
+            ->getBody()->shouldBeAnInstanceOf(StreamInterface::class);
+        $this
+            ->request('test', ['test' => 'test'], ClientInterface::REQUEST_METHOD_GET)
+            ->getBody()
+            ->getContents()->shouldEqual(json_encode(['test' => 'test']));;
+    }
+
+    private function shouldBeResponsContentWithArrayFormat(): void
+    {
         $this
             ->requestContent('test', ['test' => 'test'], ClientInterface::REQUEST_METHOD_GET)
-            ->shouldEqual(['test' => 'test']);
-        ;
+            ->shouldEqual(['test' => 'test']);;
     }
 }
