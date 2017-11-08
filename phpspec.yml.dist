@@ -1,12 +1,4 @@
 composer_namespace_provider: true
 bootstrap: bootstrap_test.php
-extensions:
-    LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
-      format:
-          - html
-          - xml
-      output:
-          html: coverage
-          xml: coverage
 suites:
     main: { namespace: SilverSite\WorkWave, psr4_prefix: SilverSite\WorkWave, src_path: src/ }
