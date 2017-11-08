@@ -26,12 +26,6 @@ class SetCallbackUrlCommandSpec extends ObjectBehavior
         $this->getUrl()->shouldEqual(self::CALLBACK_URL);
     }
 
-    public function it_value_of_test_default_should_be_false(): void
-    {
-        $this->getTest()->shouldBeBool();
-        $this->getTest()->shouldEqual(false);
-    }
-
     public function it_url_cannot_be_empty(): void
     {
         $this->beConstructedWith('');

@@ -17,7 +17,11 @@ interface ClientInterface
      * @param string $method
      * @return array
      */
-    public function requestContent(string $uri, array $parameters = [], $method = self::REQUEST_METHOD_POST): array;
+    public function requestContent(
+        string $uri,
+        array $parameters = [],
+        string $method = self::REQUEST_METHOD_POST
+    ): array;
 
     /**
      * @param string $uri

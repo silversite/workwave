@@ -3,11 +3,15 @@ declare(strict_types=1);
 
 namespace SilverSite\WorkWave\Common\CommandHandler;
 
+use DomainException;
 use SilverSite\WorkWave\Common\Service\Client;
 
 abstract class AbstractCommandHandler
 {
-    protected const URI = '';
+    /**
+     * @var string
+     */
+    protected $endpointUri;
 
     /**
      * @var Client
@@ -29,8 +33,11 @@ abstract class AbstractCommandHandler
      * @param string $method
      * @return array
      */
-    protected function request(array $parameters, array $endPointParams = [], $method = Client::REQUEST_METHOD_POST): array
-    {
+    protected function request(
+        array $parameters,
+        array $endPointParams = [],
+        string $method = Client::REQUEST_METHOD_POST
+    ): array {
         $uri = $this->replaceEndPointParams($endPointParams);
 
         return $this->client->requestContent($uri, $parameters, $method);
@@ -39,9 +46,14 @@ abstract class AbstractCommandHandler
     /**
      * @param array $params
      * @return string
+     * @throws DomainException
      */
     private function replaceEndPointParams(array $params): string
     {
-        return str_replace(array_keys($params), array_values($params), static::URI);
+        if (empty($this->endpointUri)) {
+            throw new DomainException('Request URI cannot be empty');
+        }
+
+        return str_replace(array_keys($params), array_values($params), $this->endpointUri);
     }
 }
