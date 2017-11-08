@@ -3,9 +3,8 @@ declare(strict_types=1);
 
 namespace spec\SilverSite\WorkWave\Common\Command;
 
-use SilverSite\WorkWave\Common\Command\SetCallbackUrlCommand;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
+use SilverSite\WorkWave\Common\Command\SetCallbackUrlCommand;
 use SilverSite\WorkWave\Common\Exceptions\ValueEmptyException;
 
 class SetCallbackUrlCommandSpec extends ObjectBehavior
