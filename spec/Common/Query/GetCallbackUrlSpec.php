@@ -7,7 +7,7 @@ use PhpSpec\ObjectBehavior;
 use SilverSite\WorkWave\Common\Query\GetCallbackUrl;
 use SilverSite\WorkWave\Common\Service\Client;
 use SilverSite\WorkWave\Common\Service\ClientInterface;
-use SilverSite\WorkWave\Common\ValueObject\CallbackUrl;
+use SilverSite\WorkWave\Common\ViewObject\CallbackUrl;
 
 class GetCallbackUrlSpec extends ObjectBehavior
 {
@@ -34,6 +34,6 @@ class GetCallbackUrlSpec extends ObjectBehavior
     private function shouldHaveCallbackUrl(): void
     {
         $this->url()->shouldHaveType(CallbackUrl::class);
-        $this->url()->__toString()->shouldBeEqualTo('https://my.server.com/callback');
+        $this->url()->url()->shouldBeEqualTo('https://my.server.com/callback');
     }
 }

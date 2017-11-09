@@ -30,16 +30,31 @@ class SetCallbackUrlHandlerSpec extends ObjectBehavior
         $this->beConstructedWith($client);
     }
 
+    public function it_save_callback_url(Client $client): void
+    {
+        $this->it_handlerShouldBeCalled($client);
+    }
+
+    public function it_invalid_response(Client $client): void
+    {
+        $response = [
+            'previousUrl' => self::CALLBACK_URL,
+            'url'         => 'https://my.server.com/invaid_url',
+        ];
+
+        $this->it_mockClientResponse($client, $response);
+        $this->beConstructedWith($client);
+
+        $this->handleCommand();
+
+        $this->shouldThrow(\DomainException::class)->during('handle');
+    }
+
     private function it_mockClientResponse(Client $client, array $response): void
     {
         $client
             ->requestContent('callback', ['url' => self::CALLBACK_URL], Client::REQUEST_METHOD_POST)
             ->willReturn($response);
-    }
-
-    public function it_save_callback_url(Client $client): void
-    {
-        $this->it_handlerShouldBeCalled($client);
     }
 
     private function it_handlerShouldBeCalled(Client $client): void

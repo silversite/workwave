@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace SilverSite\WorkWave\Common\Query;
 
-use SilverSite\WorkWave\Common\ValueObject\CallbackUrl;
+use SilverSite\WorkWave\Common\ViewObject\CallbackUrl;
 
 final class GetCallbackUrl extends QueryAbstract
 {

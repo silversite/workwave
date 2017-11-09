@@ -5,7 +5,7 @@ namespace SilverSite\WorkWave\Common\CommandHandler;
 
 use SilverSite\WorkWave\Common\Command\SetCallbackUrlCommand;
 
-class SetCallbackUrlHandler extends AbstractCommandHandler
+final class SetCallbackUrlHandler extends AbstractCommandHandler
 {
     /**
      * @var string

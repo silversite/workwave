@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace SilverSite\WorkWave\Common\ValueObject;
+namespace SilverSite\WorkWave\Common\ViewObject;
 
 final class CallbackUrl
 {
@@ -22,7 +22,7 @@ final class CallbackUrl
     /**
      * @return string
      */
-    public function __toString(): string
+    public function url(): string
     {
         return $this->url;
     }
